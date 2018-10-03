@@ -42,7 +42,7 @@ mvn clean spring-boot:run
 mvn clean spring-boot:run 
 ```
 
-You can verify by opening Axon Hub url. You should overview similar to following image.
+You can verify the setup by opening Axon Hub url. You should see an overview similar to the following image.
  
 ![Axon Hub Overview](./docs/AxonHub-before-ds-gui.png)
 
