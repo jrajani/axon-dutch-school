@@ -44,7 +44,7 @@ mvn clean spring-boot:run
 
 You can verify by opening Axon Hub url. You should overview similar to following image.
  
-![Axon Hub Overview][docs/AxonHub-before-ds-gui.png]
+![Axon Hub Overview](./docs/AxonHub-before-ds-gui.png)
 
 
 7. Start ds-gui
