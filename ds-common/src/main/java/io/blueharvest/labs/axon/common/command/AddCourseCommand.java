@@ -5,7 +5,7 @@ import org.axonframework.commandhandling.TargetAggregateIdentifier;
 public class AddCourseCommand {
 
     @TargetAggregateIdentifier
-    private int id;
+    private Integer id;
     private String name;
 
     public AddCourseCommand(int id, String name) {

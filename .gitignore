@@ -8,7 +8,7 @@ target
 
 # Ide files
 *.iml
-.ide
+.idea
 
 # BlueJ files
 *.ctxt

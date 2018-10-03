@@ -6,44 +6,51 @@ import io.blueharvest.labs.axon.common.event.AddCourseEvent;
 import io.blueharvest.labs.axon.common.event.StudentRegisteredEvent;
 import org.axonframework.commandhandling.CommandHandler;
 import org.axonframework.commandhandling.model.AggregateIdentifier;
-import org.axonframework.eventhandling.EventHandler;
 import org.axonframework.eventsourcing.EventSourcingHandler;
 import org.axonframework.spring.stereotype.Aggregate;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import static org.axonframework.commandhandling.model.AggregateLifecycle.apply;
 
 @Aggregate
 public class Course {
 
+    private final static Logger LOG = LoggerFactory.getLogger(Course.class);
+
     @AggregateIdentifier
-    private int id;
+    private Integer id;
     private String name;
     private int totalStudents;
 
     public Course() {
-
+        LOG.debug("Empty Constructor");
     }
 
     @CommandHandler
-    public void addCourse(AddCourseCommand command) {
+    public Course(AddCourseCommand command) {
+        LOG.debug("Course : [{}]", command);
         if(command.getId() < 0) throw new IllegalArgumentException("id < 0");
         apply(new AddCourseEvent(command.getId(), command.getName()));
     }
 
     @CommandHandler
     public void registerStudent(RegisterStudentCommand command) {
+        LOG.debug("registerStudent : [{}]", command);
         if(command.getId() < 0) throw new IllegalArgumentException("id < 0");
-        apply(new StudentRegisteredEvent(command.getId(), command.getTotalStudents()));
+        apply(new StudentRegisteredEvent(id, command.getTotalStudents()));
     }
 
-    @EventHandler
+    @EventSourcingHandler
     public void on(AddCourseEvent event) {
-        this.id = event.getId();
-        this.name = event.getName();
+        LOG.debug("AddCourseEvent : [{}]", event);
+        id = event.getId();
+        name = event.getName();
     }
 
-    @EventHandler
+    @EventSourcingHandler
     public void on(StudentRegisteredEvent evt) {
-        this.totalStudents += evt.getTotalStudents();
+        LOG.debug("StudentRegisteredEvent : [{}]", evt);
+        totalStudents += evt.getTotalStudents();
     }
 }

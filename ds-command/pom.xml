@@ -26,12 +26,6 @@
             <version>${axon.version}</version>
         </dependency>
 
-        <!--<dependency>
-            <groupId>org.axonframework</groupId>
-            <artifactId>axon-mongo</artifactId>
-            <version>${axon.version}</version>
-        </dependency>-->
-
         <!-- AxonHub client -->
         <dependency>
             <groupId>io.axoniq</groupId>
@@ -44,11 +38,6 @@
             <artifactId>spring-boot-starter</artifactId>
         </dependency>
 
-        <dependency>
-            <groupId>io.axoniq</groupId>
-            <artifactId>axondb-client</artifactId>
-            <version>${axondb.version}</version>
-        </dependency>
     </dependencies>
 
     <build>

@@ -1,8 +1,9 @@
 package io.blueharvest.labs.axon.common.model;
 
+
 public class CourseSummary {
 
-    private int id;
+    private Integer id;
     private String name;
     private int totalStudents;
 
@@ -10,17 +11,17 @@ public class CourseSummary {
 
     }
 
-    public CourseSummary(int id, String name, int totalStudents) {
+    public CourseSummary(Integer id, String name, int totalStudents) {
         this.id = id;
         this.name = name;
         this.totalStudents = totalStudents;
     }
 
-    public int getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 

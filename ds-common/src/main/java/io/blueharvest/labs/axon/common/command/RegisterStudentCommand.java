@@ -5,7 +5,7 @@ import org.axonframework.commandhandling.TargetAggregateIdentifier;
 public class RegisterStudentCommand {
 
     @TargetAggregateIdentifier
-    private int id;
+    private Integer id;
     private int totalStudents;
 
     public RegisterStudentCommand(int id, int noOfStudents) {
